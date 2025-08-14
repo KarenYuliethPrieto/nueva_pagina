@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h1>Registro</h1>
+        <input type="text" id="nombre" placeholder="Nombre completo">
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button id="register-btn">Registrarme</button>
+    </div>
+
+    <script>
+        document.getElementById("register-btn").addEventListener("click", () => {
+            const nombre = document.getElementById("nombre").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            const esEmailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+            if (!nombre || !email || !password) return alert("Por favor, complete todos los campos.");
+            if (!esEmailValido) return alert("Ingrese un correo válido.");
+            if (localStorage.getItem(email)) return alert("Este correo ya está registrado.");
+
+            localStorage.setItem(email, JSON.stringify({ nombre, email, password }));
+            localStorage.setItem("usuarioActivo", email);
+            alert(`Registro exitoso. ¡Bienvenido ${nombre}!`);
+            window.location.href = "inicio.html";
+        });
+    </script>
+</body>
+</html>

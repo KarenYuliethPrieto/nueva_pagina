@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendaciones</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="layout">
+        <div class="sidebar">
+            <p id="user-name"></p>
+            <button class="menu-btn" data-section="libros">Libros</button>
+            <button class="menu-btn" data-section="peliculas">Películas</button>
+            <button class="menu-btn" data-section="musica">Música</button>
+            <button id="logout-btn">Cerrar sesión</button>
+        </div>
+        <div class="content">
+            <h1 id="section-title">Libros</h1>
+            <input type="text" id="search" placeholder="Buscar...">
+            <div id="cards-container" class="cards-grid"></div>
+        </div>
+    </div>
+ <script src="app.js"></script>
+</body>
+</html>
